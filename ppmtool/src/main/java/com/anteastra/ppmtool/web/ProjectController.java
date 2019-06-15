@@ -34,4 +34,9 @@ public class ProjectController {
         Project project = projectService.findProjectByProjectIdentifier(projectId);
         return new ResponseEntity(project, HttpStatus.OK);
     }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllProjects() {
+        return new ResponseEntity(projectService.findAllProjects(), HttpStatus.OK);
+    }
 }
