@@ -8,6 +8,7 @@ class UpdateProject extends Component {
   //set state
   constructor() {
     super();
+
     this.state = {
       id: "",
       projectName: "",
@@ -23,11 +24,8 @@ class UpdateProject extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
-      this.setState({
-        errors: nextProps.errors
-      });
+      this.setState({ errors: nextProps.errors });
     }
-
     const {
       id,
       projectName,
@@ -84,7 +82,7 @@ class UpdateProject extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className={classnames("form-control form-control-lg ", {
+                    className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.projectName
                     })}
                     placeholder="Project Name"
@@ -103,18 +101,19 @@ class UpdateProject extends Component {
                     placeholder="Unique Project ID"
                     name="projectIdentifier"
                     value={this.state.projectIdentifier}
+                    onChange={this.onChange}
                     disabled
                   />
                 </div>
                 <div className="form-group">
                   <textarea
-                    className={classnames("form-control form-control-lg ", {
+                    className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.description
                     })}
                     placeholder="Project Description"
                     name="description"
-                    value={this.state.description}
                     onChange={this.onChange}
+                    value={this.state.description}
                   />
                   {errors.description && (
                     <div className="invalid-feedback">{errors.description}</div>

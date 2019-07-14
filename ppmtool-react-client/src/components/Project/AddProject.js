@@ -7,6 +7,7 @@ import classnames from "classnames";
 class AddProject extends Component {
   constructor() {
     super();
+
     this.state = {
       projectName: "",
       projectIdentifier: "",
@@ -15,11 +16,12 @@ class AddProject extends Component {
       endDate: "",
       errors: {}
     };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  // life cycle hooks
+  //life cycle hooks
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
@@ -51,9 +53,7 @@ class AddProject extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-8 m-auto">
-                <h5 className="display-4 text-center">
-                  Create / Edit Project form
-                </h5>
+                <h5 className="display-4 text-center">Create Project form</h5>
                 <hr />
                 <form onSubmit={this.onSubmit}>
                   <div className="form-group">
